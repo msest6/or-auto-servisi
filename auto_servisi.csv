@@ -1,0 +1,32 @@
+servis_id,servis_naziv,grad,adresa,telefon,email,web_stranica,godina_osnivanja,ovlasteni_za,ocjena,latitude,longitude,automobil_id,marka,model,godina_proizvodnje,vrsta_goriva,snaga_kw,kilometraza,boja,datum_zadnjeg_servisa
+1,Auto Centar Horvat,Zagreb,Slavonska avenija 52,+385 1 6110 234,info@ac-horvat.hr,www.ac-horvat.hr,1998,Volkswagen,4.6,45.800210,15.995330,1,Volkswagen,Golf,2019,dizel,85,98500,siva,2026-09-14
+1,Auto Centar Horvat,Zagreb,Slavonska avenija 52,+385 1 6110 234,info@ac-horvat.hr,www.ac-horvat.hr,1998,Volkswagen,4.6,45.800210,15.995330,2,Volkswagen,Passat,2017,dizel,110,176200,crna,2026-08-02
+1,Auto Centar Horvat,Zagreb,Slavonska avenija 52,+385 1 6110 234,info@ac-horvat.hr,www.ac-horvat.hr,1998,Volkswagen,4.6,45.800210,15.995330,3,Volkswagen,ID.4,2023,električni,150,21400,bijela,2026-10-05
+2,Servis Kovačević,Zagreb,Zagrebačka cesta 145,+385 1 3820 117,servis@kovacevic.hr,www.kovacevic.hr,2005,sve marke,4.2,45.806120,15.931870,4,Opel,Astra,2014,benzin,74,201300,plava,2026-07-21
+2,Servis Kovačević,Zagreb,Zagrebačka cesta 145,+385 1 3820 117,servis@kovacevic.hr,www.kovacevic.hr,2005,sve marke,4.2,45.806120,15.931870,5,Fiat,Punto,2011,benzin,51,158900,crvena,2026-06-11
+2,Servis Kovačević,Zagreb,Zagrebačka cesta 145,+385 1 3820 117,servis@kovacevic.hr,www.kovacevic.hr,2005,sve marke,4.2,45.806120,15.931870,6,Ford,Focus,2018,dizel,88,134700,srebrna,2026-09-30
+3,Jadran Motors,Split,Domovinskog rata 88,+385 21 470 520,info@jadranmotors.hr,www.jadranmotors.hr,2001,Toyota,4.7,43.521840,16.462190,7,Toyota,Yaris,2021,hibrid,85,45200,bijela,2026-10-12
+3,Jadran Motors,Split,Domovinskog rata 88,+385 21 470 520,info@jadranmotors.hr,www.jadranmotors.hr,2001,Toyota,4.7,43.521840,16.462190,8,Toyota,Corolla,2020,hibrid,90,67800,siva,2026-05-19
+3,Jadran Motors,Split,Domovinskog rata 88,+385 21 470 520,info@jadranmotors.hr,www.jadranmotors.hr,2001,Toyota,4.7,43.521840,16.462190,9,Toyota,RAV4,2022,hibrid,163,38900,zelena,2026-09-03
+3,Jadran Motors,Split,Domovinskog rata 88,+385 21 470 520,info@jadranmotors.hr,www.jadranmotors.hr,2001,Toyota,4.7,43.521840,16.462190,10,Toyota,Aygo X,2023,benzin,53,12300,crvena,2026-08-27
+4,Autoservis Babić,Rijeka,Zvonimirova 41,+385 51 330 418,babic@autoservis-ri.hr,,1992,sve marke,4.0,45.337060,14.427370,11,Peugeot,308,2016,dizel,88,187400,crna,2026-04-08
+4,Autoservis Babić,Rijeka,Zvonimirova 41,+385 51 330 418,babic@autoservis-ri.hr,,1992,sve marke,4.0,45.337060,14.427370,12,Citroën,C3,2019,benzin,61,76500,narančasta,2026-09-22
+4,Autoservis Babić,Rijeka,Zvonimirova 41,+385 51 330 418,babic@autoservis-ri.hr,,1992,sve marke,4.0,45.337060,14.427370,13,Mazda,CX-5,2018,benzin,121,112300,crvena,2026-07-15
+5,Drava Auto,Osijek,Vukovarska cesta 210,+385 31 505 300,kontakt@drava-auto.hr,www.drava-auto.hr,2010,Škoda,4.4,45.548910,18.719420,14,Škoda,Octavia,2020,dizel,110,142600,siva,2026-10-01
+5,Drava Auto,Osijek,Vukovarska cesta 210,+385 31 505 300,kontakt@drava-auto.hr,www.drava-auto.hr,2010,Škoda,4.4,45.548910,18.719420,15,Škoda,Fabia,2018,benzin,70,89300,plava,2026-06-25
+5,Drava Auto,Osijek,Vukovarska cesta 210,+385 31 505 300,kontakt@drava-auto.hr,www.drava-auto.hr,2010,Škoda,4.4,45.548910,18.719420,16,Škoda,Kodiaq,2022,dizel,147,54100,crna,2026-08-18
+6,Auto Kuća Perić,Zadar,Put Murvice 12,+385 23 312 905,info@autokuca-peric.hr,www.autokuca-peric.hr,2008,Renault,4.1,44.124150,15.244470,17,Renault,Clio,2019,benzin,67,71200,bijela,2026-09-09
+6,Auto Kuća Perić,Zadar,Put Murvice 12,+385 23 312 905,info@autokuca-peric.hr,www.autokuca-peric.hr,2008,Renault,4.1,44.124150,15.244470,18,Renault,Megane,2017,dizel,81,165800,siva,2026-03-30
+6,Auto Kuća Perić,Zadar,Put Murvice 12,+385 23 312 905,info@autokuca-peric.hr,www.autokuca-peric.hr,2008,Renault,4.1,44.124150,15.244470,19,Dacia,Duster,2021,plin,74,58700,smeđa,2026-07-04
+7,Mehanika Novak,Varaždin,Zagrebačka 96,+385 42 211 640,novak@mehanika.hr,,2015,sve marke,4.8,46.296310,16.322580,20,Audi,A4,2015,dizel,110,223500,crna,2026-10-20
+7,Mehanika Novak,Varaždin,Zagrebačka 96,+385 42 211 640,novak@mehanika.hr,,2015,sve marke,4.8,46.296310,16.322580,21,Kia,Ceed,2020,benzin,88,64900,srebrna,2026-08-11
+7,Mehanika Novak,Varaždin,Zagrebačka 96,+385 42 211 640,novak@mehanika.hr,,2015,sve marke,4.8,46.296310,16.322580,22,Volkswagen,Polo,2013,benzin,55,176000,žuta,2026-05-06
+8,Istra Car Servis,Pula,Šijanska cesta 30,+385 52 380 777,servis@istracar.hr,www.istracar.hr,2003,Hyundai,4.3,44.864920,13.866450,23,Hyundai,i30,2019,benzin,88,83400,plava,2026-09-17
+8,Istra Car Servis,Pula,Šijanska cesta 30,+385 52 380 777,servis@istracar.hr,www.istracar.hr,2003,Hyundai,4.3,44.864920,13.866450,24,Hyundai,Tucson,2022,hibrid,169,31700,siva,2026-10-08
+8,Istra Car Servis,Pula,Šijanska cesta 30,+385 52 380 777,servis@istracar.hr,www.istracar.hr,2003,Hyundai,4.3,44.864920,13.866450,25,Hyundai,Kona,2023,električni,150,18200,bijela,2026-07-29
+9,Bavaria Auto Centar,Zagreb,Radnička cesta 180,+385 1 6040 900,info@bavaria-ac.hr,www.bavaria-ac.hr,2012,BMW,4.5,45.795760,16.004900,26,BMW,320d,2019,dizel,140,128900,crna,2026-09-25
+9,Bavaria Auto Centar,Zagreb,Radnička cesta 180,+385 1 6040 900,info@bavaria-ac.hr,www.bavaria-ac.hr,2012,BMW,4.5,45.795760,16.004900,27,BMW,X3,2021,hibrid,215,49600,bijela,2026-06-14
+9,Bavaria Auto Centar,Zagreb,Radnička cesta 180,+385 1 6040 900,info@bavaria-ac.hr,www.bavaria-ac.hr,2012,BMW,4.5,45.795760,16.004900,28,BMW,i4,2023,električni,250,15800,plava,2026-10-16
+10,Slavonija Servis,Slavonski Brod,Ulica Ivana Gundulića 7,+385 35 445 120,info@slavonija-servis.hr,,1999,sve marke,3.9,45.160070,18.015330,29,Seat,Leon,2016,dizel,85,192100,crvena,2026-04-23
+10,Slavonija Servis,Slavonski Brod,Ulica Ivana Gundulića 7,+385 35 445 120,info@slavonija-servis.hr,,1999,sve marke,3.9,45.160070,18.015330,30,Nissan,Qashqai,2018,benzin,103,118400,siva,2026-08-06
+10,Slavonija Servis,Slavonski Brod,Ulica Ivana Gundulića 7,+385 35 445 120,info@slavonija-servis.hr,,1999,sve marke,3.9,45.160070,18.015330,31,Suzuki,Vitara,2020,hibrid,95,61300,zelena,2026-09-12
