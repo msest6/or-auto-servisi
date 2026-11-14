@@ -13,7 +13,7 @@ Između servisnih centara i automobila postoji veza više-na-više (N:N): jedan 
 | **Naziv skupa** | Auto servisi u Hrvatskoj |
 | **Autor** | Matej Šest |
 | **Licencija** | [Creative Commons Imenovanje 4.0 međunarodna (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.hr) |
-| **Verzija** | 1.1 |
+| **Verzija** | 2.0 |
 | **Datum objave** | 2026-11-09 |
 | **Jezik podataka** | hrvatski |
 | **Formati** | CSV, JSON |
