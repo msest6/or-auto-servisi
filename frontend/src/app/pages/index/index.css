@@ -1,0 +1,92 @@
+.uvod {
+  margin-bottom: 32px;
+}
+
+.nadnaslov {
+  margin: 0;
+  color: var(--naglasak);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+h1 {
+  margin: 4px 0 16px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+h3 {
+  margin: 24px 0 4px;
+  font-size: 1.05rem;
+}
+
+.sazetak {
+  max-width: 75ch;
+}
+
+.napomena {
+  max-width: 75ch;
+  background: var(--upozorenje-pozadina);
+  border: 1px solid var(--upozorenje-rub);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.poveznice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.pregled-tablice {
+  margin-bottom: 0;
+}
+
+.metapodaci th {
+  width: 220px;
+  white-space: normal;
+}
+
+.opis-entiteta {
+  margin-top: 0;
+  color: var(--tekst-blijedi);
+}
+
+.greska {
+  color: var(--greska);
+}
+
+/* iste širine stupaca u sve tri tablice atributa */
+.atributi {
+  table-layout: fixed;
+  min-width: 560px;
+}
+
+.atributi th:nth-child(1) {
+  width: 24%;
+}
+
+.atributi th:nth-child(2) {
+  width: 30%;
+}
+
+.atributi td {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .kartica {
+    padding: 16px;
+  }
+
+  .metapodaci th {
+    width: 42%;
+  }
+}

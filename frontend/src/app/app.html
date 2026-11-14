@@ -1,0 +1,20 @@
+<header class="zaglavlje">
+  <div class="omot">
+    <a routerLink="/" class="logo">Auto servisi <span>u Hrvatskoj</span></a>
+    <nav>
+      <a routerLink="/" routerLinkActive="aktivno" [routerLinkActiveOptions]="{ exact: true }">Početna</a>
+      <a routerLink="/datatable" routerLinkActive="aktivno">Tablica podataka</a>
+    </nav>
+  </div>
+</header>
+
+<main class="omot">
+  <router-outlet />
+</main>
+
+<footer class="podnozje">
+  <div class="omot">
+    Auto servisi u Hrvatskoj · verzija 2.0 ·
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.hr" target="_blank" rel="noopener">CC BY 4.0</a>
+  </div>
+</footer>

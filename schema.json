@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/msest6/or-auto-servisi/blob/main/schema.json",
+  "title": "Auto servisi u Hrvatskoj",
+  "description": "Otvoreni skup podataka o servisnim centrima za automobile u Hrvatskoj, automobilima koji su u njima servisirani i servisima koji su na njima obavljeni.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Servisni centar",
+    "description": "Objekt koji sadrži podatke o jednom servisnom centru i automobilima koje je servisirao.",
+    "required": [
+      "id",
+      "naziv",
+      "grad",
+      "adresa",
+      "telefon",
+      "email",
+      "web_stranica",
+      "godina_osnivanja",
+      "ovlasteni_za",
+      "ocjena",
+      "latitude",
+      "longitude",
+      "automobili"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "integer",
+        "title": "Identifikator centra",
+        "description": "Jedinstveni identifikator servisnog centra.",
+        "minimum": 1
+      },
+      "naziv": {
+        "type": "string",
+        "title": "Naziv",
+        "description": "Naziv servisnog centra.",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "grad": {
+        "type": "string",
+        "title": "Grad",
+        "description": "Grad u kojem se servisni centar nalazi.",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "adresa": {
+        "type": "string",
+        "title": "Adresa",
+        "description": "Ulica i kućni broj servisnog centra.",
+        "minLength": 1,
+        "maxLength": 150
+      },
+      "telefon": {
+        "type": ["string", "null"],
+        "title": "Telefon",
+        "description": "Kontakt telefon u međunarodnom formatu.",
+        "pattern": "^\\+[0-9 ]+$"
+      },
+      "email": {
+        "type": ["string", "null"],
+        "title": "E-pošta",
+        "description": "Kontakt adresa e-pošte.",
+        "format": "email"
+      },
+      "web_stranica": {
+        "type": ["string", "null"],
+        "title": "Web stranica",
+        "description": "Adresa web stranice servisnog centra; null ako centar nema stranicu."
+      },
+      "godina_osnivanja": {
+        "type": ["integer", "null"],
+        "title": "Godina osnivanja",
+        "description": "Godina u kojoj je servisni centar osnovan.",
+        "minimum": 1900,
+        "maximum": 2100
+      },
+      "ovlasteni_za": {
+        "type": ["string", "null"],
+        "title": "Ovlašteni za",
+        "description": "Marka automobila za koju je centar ovlašten ili 'sve marke' za neovisne servise."
+      },
+      "ocjena": {
+        "type": ["number", "null"],
+        "title": "Ocjena",
+        "description": "Prosječna ocjena korisnika na ljestvici od 1.0 do 5.0.",
+        "minimum": 1,
+        "maximum": 5
+      },
+      "latitude": {
+        "type": ["number", "null"],
+        "title": "Geografska širina",
+        "description": "Geografska širina lokacije servisnog centra (WGS 84).",
+        "minimum": -90,
+        "maximum": 90
+      },
+      "longitude": {
+        "type": ["number", "null"],
+        "title": "Geografska dužina",
+        "description": "Geografska dužina lokacije servisnog centra (WGS 84).",
+        "minimum": -180,
+        "maximum": 180
+      },
+      "automobili": {
+        "type": "array",
+        "title": "Automobili",
+        "description": "Automobili koje je servisni centar servisirao; svaki automobil navodi se samo jednom.",
+        "items": {
+          "type": "object",
+          "title": "Automobil",
+          "description": "Objekt koji sadrži podatke o jednom automobilu i servisima obavljenima na njemu u tom centru.",
+          "required": [
+            "id",
+            "registracija",
+            "marka",
+            "model",
+            "godina_proizvodnje",
+            "vrsta_goriva",
+            "snaga_kw",
+            "boja",
+            "servisi"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "integer",
+              "title": "Identifikator automobila",
+              "description": "Jedinstveni identifikator automobila.",
+              "minimum": 1
+            },
+            "registracija": {
+              "type": "string",
+              "title": "Registracija",
+              "description": "Registarska oznaka vozila, jedinstvena za svaki automobil.",
+              "minLength": 1,
+              "maxLength": 15
+            },
+            "marka": {
+              "type": "string",
+              "title": "Marka",
+              "description": "Proizvođač automobila.",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            "model": {
+              "type": "string",
+              "title": "Model",
+              "description": "Model automobila.",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            "godina_proizvodnje": {
+              "type": ["integer", "null"],
+              "title": "Godina proizvodnje",
+              "description": "Godina proizvodnje automobila.",
+              "minimum": 1950,
+              "maximum": 2100
+            },
+            "vrsta_goriva": {
+              "type": ["string", "null"],
+              "title": "Vrsta goriva",
+              "description": "Vrsta pogonskog goriva automobila.",
+              "enum": ["benzin", "dizel", "hibrid", "električni", "plin", null]
+            },
+            "snaga_kw": {
+              "type": ["integer", "null"],
+              "title": "Snaga (kW)",
+              "description": "Snaga motora u kilovatima.",
+              "exclusiveMinimum": 0
+            },
+            "boja": {
+              "type": ["string", "null"],
+              "title": "Boja",
+              "description": "Boja vozila."
+            },
+            "servisi": {
+              "type": "array",
+              "title": "Servisi",
+              "description": "Servisi obavljeni na automobilu u ovom servisnom centru, poredani po datumu.",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "title": "Servis",
+                "description": "Objekt koji sadrži podatke o jednom obavljenom servisu.",
+                "required": [
+                  "id",
+                  "datum",
+                  "vrsta_usluge",
+                  "mehanicar",
+                  "kilometraza",
+                  "cijena_eur",
+                  "opis"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "title": "Identifikator servisa",
+                    "description": "Jedinstveni identifikator servisa.",
+                    "minimum": 1
+                  },
+                  "datum": {
+                    "type": "string",
+                    "title": "Datum",
+                    "description": "Datum obavljanja servisa u formatu GGGG-MM-DD (ISO 8601).",
+                    "format": "date"
+                  },
+                  "vrsta_usluge": {
+                    "type": "string",
+                    "title": "Vrsta usluge",
+                    "description": "Vrsta obavljene usluge.",
+                    "enum": [
+                      "mali servis",
+                      "veliki servis",
+                      "zamjena guma",
+                      "dijagnostika",
+                      "popravak kočnica",
+                      "klima servis",
+                      "tehnički pregled"
+                    ]
+                  },
+                  "mehanicar": {
+                    "type": "string",
+                    "title": "Mehaničar",
+                    "description": "Ime i prezime mehaničara koji je obavio servis.",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "kilometraza": {
+                    "type": ["integer", "null"],
+                    "title": "Kilometraža",
+                    "description": "Prijeđeni kilometri vozila u trenutku servisa.",
+                    "minimum": 0
+                  },
+                  "cijena_eur": {
+                    "type": ["number", "null"],
+                    "title": "Cijena (EUR)",
+                    "description": "Cijena servisa u eurima.",
+                    "minimum": 0
+                  },
+                  "opis": {
+                    "type": ["string", "null"],
+                    "title": "Opis",
+                    "description": "Kratak opis obavljenih radova.",
+                    "maxLength": 300
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

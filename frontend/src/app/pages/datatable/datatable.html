@@ -1,0 +1,102 @@
+<!-- Tablica podataka s obrascem za filtriranje.
+     Podaci se dohvaćaju asinkrono (fetch) iz baze preko back-enda: GET /api/servisi -->
+
+<h1>Tablica podataka</h1>
+<p class="uvod">
+  Svaki redak predstavlja jedan servis, zajedno s podacima servisnog centra koji ga je obavio i
+  automobila koji je servisiran. Upisani tekst se zadano traži po svim atributima, a odabirom
+  atributa pretraga se sužava samo na njega. Opis atributa nalazi se na <a routerLink="/">početnoj stranici</a>.
+</p>
+
+<!-- Obrazac za filtriranje -->
+<form class="kartica obrazac" (ngSubmit)="pretrazi()">
+  <div class="polje tekst">
+    <label for="pretraga">Traženi tekst</label>
+    <input
+      id="pretraga"
+      name="pretraga"
+      type="search"
+      placeholder="npr. golf, Zagreb, 2026-09…"
+      autocomplete="off"
+      [ngModel]="unos()"
+      (ngModelChange)="unos.set($event)"
+    />
+  </div>
+
+  <div class="polje">
+    <label for="atribut">Pretraži po</label>
+    <select id="atribut" name="atribut" [ngModel]="odabraniAtribut()" (ngModelChange)="odabraniAtribut.set($event)">
+      <option value="">Svi atributi</option>
+      @for (a of atributi(); track a.naziv) {
+        <option [value]="a.naziv">{{ a.oznaka }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="gumbi">
+    <button type="submit" class="gumb">Pretraži</button>
+    <button type="button" class="gumb sporedni" (click)="ponisti()">Poništi</button>
+  </div>
+</form>
+
+<!-- Traka sa stanjem filtra, prikazom stupaca i preuzimanjem -->
+<div class="traka">
+  <p class="stanje" aria-live="polite">
+    @if (ucitavanje()) {
+      Učitavanje…
+    } @else if (!greska()) {
+      @if (primijenjeniFiltar().q) {
+        Pronađeno <strong>{{ redci().length }}</strong> servisa za „{{ primijenjeniFiltar().q }}“
+      } @else {
+        Prikazano svih <strong>{{ redci().length }}</strong> servisa
+      }
+    }
+  </p>
+
+  <label class="prekidac">
+    <input type="checkbox" [checked]="sviStupci()" (change)="sviStupci.set($any($event.target).checked)" />
+    Prikaži sve stupce
+  </label>
+
+  <div class="preuzimanje">
+    <span>Preuzmi prikaz:</span>
+    <a class="gumb sporedni malen" [href]="csvPoveznica()" download="auto_servisi_filtrirano.csv">CSV</a>
+    <a class="gumb sporedni malen" [href]="jsonPoveznica()" download="auto_servisi_filtrirano.json">JSON</a>
+  </div>
+</div>
+
+@if (greska(); as g) {
+  <p class="greska" role="alert">{{ g }}</p>
+}
+
+<!-- Tablica -->
+<div class="kartica tablica-kartica">
+  <div class="tablica-omot">
+    <table [class.zasjenjeno]="ucitavanje()">
+      <thead>
+        <tr>
+          @for (s of stupci(); track s.naziv) {
+            <th scope="col" [class.broj]="brojcani(s.naziv)">{{ s.oznaka }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of redci(); track r.servis_id) {
+          <tr>
+            @for (s of stupci(); track s.naziv) {
+              <td [class.broj]="brojcani(s.naziv)">{{ vrijednost(r, s.naziv) }}</td>
+            }
+          </tr>
+        } @empty {
+          @if (!ucitavanje() && !greska()) {
+            <tr>
+              <td class="prazno" [attr.colspan]="stupci().length || 1">
+                Nema servisa koji odgovaraju filtru.
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

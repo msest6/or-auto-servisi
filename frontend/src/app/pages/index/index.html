@@ -1,0 +1,133 @@
+<!-- Početna stranica: opis skupa podataka i metapodaci (iz README.md) -->
+
+<section class="uvod">
+  <p class="nadnaslov">Otvoreni skup podataka</p>
+  <h1>Auto servisi u Hrvatskoj</h1>
+  <p class="sazetak">
+    Otvoreni skup podataka o servisnim centrima za automobile u Hrvatskoj, automobilima koji su u
+    njima servisirani i servisima koji su na njima obavljeni. Za svaki servisni centar navedeni su
+    lokacija (grad, adresa i geografske koordinate), kontakt podaci, godina osnivanja, marka za koju
+    je ovlašten te prosječna ocjena korisnika. Za svaki automobil navedeni su registracija i osnovni
+    tehnički podaci, a za svaki servis datum, vrsta usluge, mehaničar, kilometraža vozila, cijena i
+    kratak opis radova.
+  </p>
+  <p class="sazetak">
+    Između servisnih centara i automobila postoji veza više-na-više (N:N): jedan centar servisira
+    više automobila, a jedan automobil može biti servisiran više puta i u različitim centrima. Skup
+    je nastao u sklopu laboratorijskih vježbi iz kolegija Otvoreno računarstvo na FER-u.
+  </p>
+  <p class="napomena">
+    <strong>Napomena:</strong> podaci su izmišljeni i služe isključivo u obrazovne svrhe. Nazivi
+    centara, kontakti, mehaničari, registracije i automobili ne odgovaraju stvarnim osobama,
+    tvrtkama ni vozilima.
+  </p>
+</section>
+
+<!-- Preuzimanje cjelokupnog skupa: datoteke se poslužuju s datotečnog sustava -->
+<section class="kartica">
+  <h2>Preuzimanje podataka</h2>
+  <p>Cjelokupni skup podataka u strojno čitljivim formatima:</p>
+  <div class="poveznice">
+    <a class="gumb" href="/data/auto_servisi.csv" download="auto_servisi.csv">Preuzmi CSV</a>
+    <a class="gumb" href="/data/auto_servisi.json" download="auto_servisi.json">Preuzmi JSON</a>
+    <a class="gumb sporedni" href="/data/schema.json" download="schema.json">JSON Schema</a>
+  </div>
+  <p class="pregled-tablice">
+    Podatke možete pregledati i filtrirati u
+    <a routerLink="/datatable">tablici podataka</a>, gdje je moguće preuzeti i filtrirani prikaz.
+  </p>
+</section>
+
+<section class="kartica">
+  <h2>Metapodaci</h2>
+  <div class="tablica-omot">
+    <table class="metapodaci">
+      <tbody>
+        @for (m of metapodaci; track m[0]) {
+          <tr>
+            <th scope="row">{{ m[0] }}</th>
+            <td>
+              @if (m[0] === 'Licencija') {
+                <a href="https://creativecommons.org/licenses/by/4.0/deed.hr" target="_blank" rel="noopener">{{ m[1] }}</a>
+              } @else {
+                {{ m[1] }}
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="kartica">
+  <h2>Struktura podataka</h2>
+  <p>U bazi su podaci spremljeni u tri tablice:</p>
+  <pre>servisni_centar (1) ──&lt; servis &gt;── (1) automobil</pre>
+  <p>
+    Tablica <code>servis</code> je vezna tablica koja ostvaruje vezu N:N i sadrži vlastite atribute
+    (datum, mehaničar, kilometraža...).
+  </p>
+  <h3>JSON</h3>
+  <p>
+    Polje servisnih centara. Svaki centar sadrži polje <code>automobili</code> s automobilima koje
+    je servisirao, pri čemu se svaki automobil unutar jednog centra navodi samo jednom. Svaki
+    automobil sadrži polje <code>servisi</code> sa servisima obavljenima na njemu u tom centru,
+    poredanima po datumu. Automobil servisiran u više centara pojavljuje se pod svakim od tih centara.
+  </p>
+  <pre>{{ primjerJson }}</pre>
+  <h3>CSV</h3>
+  <p>
+    Ravna tablica u kojoj jedan redak predstavlja jedan servis, pa se podaci centra i automobila
+    ponavljaju u svakom retku u kojem se pojavljuju. Prvi redak sadrži nazive stupaca.
+  </p>
+</section>
+
+<section class="kartica">
+  <h2>Opis atributa</h2>
+  <p>
+    Nazivi atributa jednaki su u JSON-u i CSV-u, osim identifikatora i naziva centra: u CSV-u su
+    nazvani <code>centar_id</code>, <code>centar_naziv</code>, <code>servis_id</code> i
+    <code>automobil_id</code>, dok se u JSON-u unutar svakog objekta zovu <code>id</code> i
+    <code>naziv</code>. Opisi su učitani iz <a href="/data/schema.json">JSON Scheme</a> skupa.
+  </p>
+
+  @if (greskaSheme(); as greska) {
+    <p class="greska">{{ greska }}</p>
+  }
+
+  @for (e of entiteti(); track e.naslov) {
+    <h3>{{ e.naslov }}</h3>
+    <p class="opis-entiteta">{{ e.opis }}</p>
+    <div class="tablica-omot">
+      <table class="atributi">
+        <thead>
+          <tr>
+            <th>Atribut</th>
+            <th>Tip</th>
+            <th>Opis</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (a of e.atributi; track a.naziv) {
+            <tr>
+              <td><code>{{ a.naziv }}</code></td>
+              <td>{{ a.tip }}</td>
+              <td>{{ a.opis }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+
+<section class="kartica">
+  <h2>Licencija</h2>
+  <p>
+    Skup podataka objavljen je pod licencijom
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.hr" target="_blank" rel="noopener">
+      Creative Commons Imenovanje 4.0 međunarodna (CC BY 4.0)</a>. Podatke smijete slobodno dijeliti,
+    prilagođavati i koristiti u bilo koje svrhe, uključujući komercijalne, uz uvjet da navedete autora.
+  </p>
+</section>

@@ -1,0 +1,129 @@
+/* Zajednički stilovi cijele aplikacije */
+
+:root {
+  --pozadina: #f5f6f8;
+  --povrsina: #ffffff;
+  --rub: #e2e5ea;
+  --tekst: #1b1f24;
+  --tekst-blijedi: #5b6470;
+  --naglasak: #1f5fbf;
+  --naglasak-pozadina: #e8f0fc;
+  --upozorenje-pozadina: #fff6e0;
+  --upozorenje-rub: #f0d48a;
+  --greska: #b42318;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pozadina: #121418;
+    --povrsina: #1b1e24;
+    --rub: #2c313a;
+    --tekst: #e8eaed;
+    --tekst-blijedi: #9aa3ae;
+    --naglasak: #7aa7ec;
+    --naglasak-pozadina: #1d2b40;
+    --upozorenje-pozadina: #2e2716;
+    --upozorenje-rub: #5c4c1f;
+    --greska: #f97066;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--pozadina);
+  color: var(--tekst);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--naglasak);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+code {
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--naglasak-pozadina);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+pre {
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: 0.875rem;
+  background: var(--povrsina);
+  border: 1px solid var(--rub);
+  border-radius: 8px;
+  padding: 12px 16px;
+  overflow-x: auto;
+}
+
+.kartica {
+  background: var(--povrsina);
+  border: 1px solid var(--rub);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.tablica-omot {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--rub);
+  vertical-align: top;
+}
+
+th {
+  color: var(--tekst-blijedi);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.gumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--naglasak);
+  background: var(--naglasak);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.gumb.sporedni {
+  background: transparent;
+  color: var(--naglasak);
+}
+
+.gumb:hover {
+  filter: brightness(1.08);
+}

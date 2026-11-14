@@ -1,0 +1,76 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.omot {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.zaglavlje {
+  background: var(--povrsina);
+  border-bottom: 1px solid var(--rub);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.zaglavlje .omot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 60px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--tekst);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--naglasak);
+}
+
+nav {
+  display: flex;
+  gap: 4px;
+}
+
+nav a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--tekst-blijedi);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background: var(--pozadina);
+  color: var(--tekst);
+}
+
+nav a.aktivno {
+  color: var(--naglasak);
+  background: var(--naglasak-pozadina);
+}
+
+main {
+  flex: 1;
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.podnozje {
+  border-top: 1px solid var(--rub);
+  padding: 20px 0;
+  color: var(--tekst-blijedi);
+  font-size: 0.875rem;
+}
